@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 # Your job is to write a function which increments a string, to create a new string.
 
@@ -5,32 +6,40 @@
 # If the string does not end with a number. the number 1 should be appended to
 # the new string.
 
-
+# -------v1------
 def increment_string(input)
-
   array = []
-  input = input.split('')
-  l = input.length-1
-  input.each_with_index do |el, index|
+  output = input.split('')
+  len = output.length - 1
 
+  regex = /\d/
+  if output.empty? || output[len].match(regex).nil?
+    array.push('0')
+  else
 
-
-   a = input[l-index].is_a? Numeric
-   p a
-    until a == false
-       array << input[l-index]
-       # input.pop
-
+    output.each_with_index do |_el, i|
+      if output[len - i].match?(regex)
+        # p "h"
+        array.unshift(output[len - i])
+        output.pop
+      else
+        break
+      end
     end
-    break
   end
-
-return array
+  # array.map{|i| i = -i}
+  str = array.join
+  str.next!
+  output = output.join
+  output + str
 end
- input = "aa4aaa100000"
 
-# # 12.is_a? Numeric
-# input = ["a", "a", "4", "a", "a", "a", "1", "0", "0", "0", "0", "0"]
-# l=12
+s = 'a02'
 
-p increment_string(input)
+p increment_string(s)
+
+# Best solution:
+
+# def increment_string(input)
+#   input.sub(/\d*$/) { |n| n.empty? ? 1 : n.succ }
+# end
