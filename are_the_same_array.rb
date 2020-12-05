@@ -38,20 +38,24 @@
 # work on MRI 2.5.0
 require 'pry'
 def comp(array1, array2)
-  return true if array1 == [] && array2 == []
+  if (array1 = nil && array2 = nil)
+    true
   # binding.pry
-  return true if array1 == array2
+  elsif array1 == array2
+    true
 
-  # binding.pry
-  # array2 root sqre of its element
-  array2.map! { |number| Math.sqrt(number) }
+  elsif array2.map! { |number| Math.sqrt(number) }
+    # binding.pry
+    # array2 root sqre of its element
 
-  # sort accending  order
-  array1.sort!
-  array2.sort!
+    # sort accending  order
+    array1.sort!
+    array2.sort!
 
-  # comparing the array
-  array1 == array2
+    # comparing the array
+    array1 == array2
+
+  end
 end
 
 array1 = nil
