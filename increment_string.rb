@@ -7,6 +7,7 @@
 # the new string.
 
 # -------v1------
+
 def increment_string(input)
   array = []
   output = input.split('')

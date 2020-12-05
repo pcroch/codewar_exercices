@@ -35,7 +35,7 @@ end
 #   stack = []
 #   array = string.split("")
 
-#   array.ëach do |item|
+#   array.each do |item|
 #     # find the pair
 
 #     # at the ned check length
@@ -44,6 +44,6 @@ end
 # end
 
 string = '(c(b(a)))(d)'
-string = '  ('
+# string = '  ('
 
 p valid_parentheses(string)
