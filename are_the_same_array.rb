@@ -17,12 +17,16 @@
 
 # --------------------------------------------------------------------------------
 
+# --------------------1------------------
 # work on MRI 2.7.0
 # require 'pry'
-# # binding.pry
+# # # binding.pry
 # def comp(array1, array2)
-#   return true if array1 == array2
+#   array1 = array1.to_a
+#   array2 = array2.to_a
 
+#   return true if array1 == array2
+# binding.pry
 #   # binding.pry
 #   # array2 root sqre of its element
 #   array2.map! { |number| Math.sqrt(number) }
@@ -35,31 +39,46 @@
 #   array1 == array2
 # end
 
-# work on MRI 2.5.0
-require 'pry'
+# --------------------2------------------
+
+# # work on MRI 2.5.0
+# require 'pry'
+# def comp(array1, array2)
+#   # return true if (array1 == [nil] && array2 == [nil])
+#   if (array1 = nil && array2 = nil)
+#     true
+#   # binding.pry
+#   elsif array1 == array2
+#     true
+
+#   elsif array2.map! { |number| Math.sqrt(number) }
+#     # binding.pry
+#     # array2 root sqre of its element
+
+#     # sort accending  order
+#     array1.sort!
+#     array2.sort!
+
+#     # comparing the array
+#     array1 == array2
+
+#   end
+# end
+# --------------------3------------------
+
+# # binding.pry
 def comp(array1, array2)
-  if (array1 = nil && array2 = nil)
-    true
-  # binding.pry
-  elsif array1 == array2
-    true
+  return false if array1.nil? || array2.nil?
 
-  elsif array2.map! { |number| Math.sqrt(number) }
-    # binding.pry
-    # array2 root sqre of its element
+  # array2 root sqre of its element
+  array2.map! { |number| Math.sqrt(number) }
 
-    # sort accending  order
-    array1.sort!
-    array2.sort!
-
-    # comparing the array
-    array1 == array2
-
-  end
+  # sort accending  order &   # comparing the array
+  array1.sort! == array2.sort!
 end
 
-array1 = nil
-array2 = nil
+# array1 = nil
+# array2 = [1]
 # false
 
 # array1 = [121, 144, 19, 161, 19, 144, 19, 11]
@@ -83,11 +102,15 @@ array2 = nil
 # false
 
 # array1 = []
-# array2 = []
-# true
+# array2 = nil
+# # false
 
-# array1 = [4, 4]
-# array2 = [1.0, 5.5677643628300215]
+# array1 = nil
+# array2 = []
+# false
+
+array1 = [4, 4]
+array2 = [1.0, 5.5677643628300215]
 # false
 
 p comp(array1, array2)
